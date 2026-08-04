@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   ZOYA FASHION — design tokens
+   "Modesty, shaped by movement." First Light–derived, editorial,
+   restrained. Do not scatter hex codes in components — use these.
+----------------------------------------------------------------- */
+
+:root {
+  /* Core palette */
+  --color-obsidian: #0d0d0d;
+  --color-ink: #151515;
+  --color-alabaster: #fbfbf9;
+  --color-warm-ivory: #f4f0e9;
+  --color-desert-sand: #d4c5b9;
+  --color-soft-clay: #9e8e80;
+  --color-stone: #6e6963;
+  --color-thread-silver: #c9cbcf;
+  --color-chrome: #b7bcc4;
+  --color-burgundy: #4a1420;
+  --color-gold: #ad8a54;
+
+  /* Semantic surface roles */
+  --surface-cinematic: var(--color-obsidian);
+  --surface-editorial: var(--color-warm-ivory);
+  --surface-commerce: var(--color-alabaster);
+  --ink-on-dark: var(--color-alabaster);
+  --ink-on-light: var(--color-ink);
+  --border-hairline-dark: rgb(251 251 249 / 0.14);
+  --border-hairline-light: rgb(21 21 21 / 0.12);
+
+  --background: var(--color-alabaster);
+  --foreground: var(--color-ink);
+}
+
+@theme inline {
+  --color-obsidian: var(--color-obsidian);
+  --color-ink: var(--color-ink);
+  --color-alabaster: var(--color-alabaster);
+  --color-warm-ivory: var(--color-warm-ivory);
+  --color-desert-sand: var(--color-desert-sand);
+  --color-soft-clay: var(--color-soft-clay);
+  --color-stone: var(--color-stone);
+  --color-thread-silver: var(--color-thread-silver);
+  --color-chrome: var(--color-chrome);
+  --color-burgundy: var(--color-burgundy);
+  --color-gold: var(--color-gold);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", "Noto Naskh Arabic", serif;
+  --font-sans: var(--font-geist-sans), "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+  --font-arabic-serif: "Noto Naskh Arabic", var(--font-cormorant), serif;
+  --font-arabic-sans: "IBM Plex Sans Arabic", var(--font-geist-sans), sans-serif;
+
+  /* Editorial type scale — fluid via clamp() */
+  --text-display-xl: clamp(2.75rem, 3.2vw + 2rem, 6.5rem);
+  --text-display-xl--line-height: 0.98;
+  --text-display-xl--letter-spacing: -0.01em;
+
+  --text-display-l: clamp(2.1rem, 2.2vw + 1.5rem, 4.25rem);
+  --text-display-l--line-height: 1.02;
+  --text-display-l--letter-spacing: -0.01em;
+
+  --text-h1: clamp(1.9rem, 1.4vw + 1.4rem, 3rem);
+  --text-h1--line-height: 1.08;
+
+  --text-h2: clamp(1.5rem, 1vw + 1.15rem, 2.25rem);
+  --text-h2--line-height: 1.12;
+
+  --text-h3: clamp(1.2rem, 0.5vw + 1.02rem, 1.6rem);
+  --text-h3--line-height: 1.2;
+
+  --text-editorial: clamp(1.15rem, 0.4vw + 1.02rem, 1.4rem);
+  --text-editorial--line-height: 1.55;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+
+  --text-meta: 0.875rem;
+  --text-meta--line-height: 1.5;
+
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.45;
+
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.3;
+  --text-label--letter-spacing: 0.14em;
+
+  --text-micro: 0.6875rem;
+  --text-micro--line-height: 1.3;
+  --text-micro--letter-spacing: 0.16em;
+
+  --radius-frame: 2px;
+  --radius-control: 999px;
+
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  border-color: currentColor;
+}
+
+html {
+  scroll-behavior: auto;
+  color-scheme: light;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+[dir="rtl"] body {
+  font-family: var(--font-arabic-sans);
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-alabaster);
+}
+
+/* Hairline rule utility — thin one-pixel dividers per visual language */
+.rule-hairline {
+  border-top: 1px solid var(--border-hairline-light);
+}
+.rule-hairline-dark {
+  border-top: 1px solid var(--border-hairline-dark);
+}
+
+/* Focus visibility — never remove outlines, only restyle */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  background: var(--color-ink);
+  color: var(--color-alabaster);
+  padding: 0.75rem 1.25rem;
+  font-size: var(--text-label);
+  letter-spacing: var(--text-label--letter-spacing);
+  text-transform: uppercase;
+  transition: top 200ms var(--ease-editorial);
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
