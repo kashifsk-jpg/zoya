@@ -23,6 +23,11 @@ export function ProductDetailsAccordion({ product }: { product: Product }) {
     <div className="mt-10">
       <AccordionItem title="Description" defaultOpen>
         <p>{product.description}</p>
+        {fabric && (
+          <p className="mt-2">
+            <span className="text-ink">Fabric:</span> {fabric.name}
+          </p>
+        )}
       </AccordionItem>
       <AccordionItem title="Fabric &amp; Care">
         <p>{fabric?.name} — {fabric?.texture}</p>

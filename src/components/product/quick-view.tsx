@@ -4,9 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 import { Dialog } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { TextileStudy } from "@/components/editorial/textile-study";
+import { ProductVisual } from "@/components/editorial/product-visual";
 import { useBagStore } from "@/store/bag-store";
 import { formatPrice } from "@/lib/utils";
+import { getFabric } from "@/lib/fabrics";
 import type { Product } from "@/lib/types";
 
 export function QuickView({ product, open, onClose }: { product: Product; open: boolean; onClose: () => void }) {
@@ -15,14 +16,13 @@ export function QuickView({ product, open, onClose }: { product: Product; open: 
   const [added, setAdded] = useState(false);
   const addItem = useBagStore((s) => s.addItem);
   const colour = product.colours.find((c) => c.id === colourId) ?? product.colours[0];
+  const fabric = getFabric(product.fabricId);
 
   return (
     <Dialog open={open} onClose={onClose} labelledBy={`quick-view-${product.id}`} placement="center" className="max-w-3xl">
       <div className="grid max-h-[90vh] w-full grid-cols-1 overflow-y-auto bg-alabaster md:grid-cols-2">
-        <TextileStudy
-          seed={product.images[0].src}
-          alt={product.images[0].alt}
-          aspect="portrait"
+        <ProductVisual
+          image={product.images[0]}
           tone={colour?.fabricId === "hand-embroidered" ? "gold" : "obsidian"}
           showStitching={product.embroideryType !== "None"}
           className="h-full min-h-[320px]"
@@ -38,6 +38,11 @@ export function QuickView({ product, open, onClose }: { product: Product; open: 
           </div>
           <p className="mt-2 text-body text-stone">{formatPrice(product.price)}</p>
           <p className="mt-4 text-body text-stone">{product.description}</p>
+          {fabric && (
+            <p className="mt-1 text-body text-stone">
+              <span className="text-ink">Fabric:</span> {fabric.name}
+            </p>
+          )}
 
           <div className="mt-6">
             <p className="text-label uppercase tracking-[0.14em] text-stone">Colour — {colour?.label}</p>

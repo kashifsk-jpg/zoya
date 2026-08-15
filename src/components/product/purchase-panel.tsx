@@ -9,6 +9,7 @@ import { useHydrated } from "@/hooks/use-hydrated";
 import { formatPrice, cn } from "@/lib/utils";
 import type { Product } from "@/lib/types";
 import { WHATSAPP_HREF } from "@/lib/constants";
+import { getFabric } from "@/lib/fabrics";
 
 const AVAILABILITY_LABEL: Record<Product["availability"], string> = {
   "in-stock": "In Stock — ships in 1–2 business days",
@@ -44,6 +45,7 @@ export function PurchasePanel({
   const toggleWishlist = useWishlistStore((s) => s.toggle);
   const colour = product.colours.find((c) => c.id === colourId) ?? product.colours[0];
   const soldOut = product.availability === "sold-out";
+  const fabric = getFabric(product.fabricId);
 
   return (
     <div id="purchase-panel">
@@ -60,6 +62,11 @@ export function PurchasePanel({
       </p>
 
       <p className="mt-4 max-w-md text-body text-stone">{product.editorialDescription}</p>
+      {fabric && (
+        <p className="mt-2 max-w-md text-body text-stone">
+          <span className="text-ink">Fabric:</span> {fabric.name}
+        </p>
+      )}
 
       <div className="mt-6">
         <p className="text-label uppercase tracking-[0.14em] text-stone">Colour — {colour?.label}</p>

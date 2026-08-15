@@ -20,7 +20,7 @@ export function FeaturedProducts() {
 
         <div className="mt-14 grid grid-cols-1 gap-x-5 gap-y-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <ProductCard product={products[0]} aspectOverride="portrait" />
+            <ProductCard product={products[0]} aspectOverride="portrait" priority />
           </div>
           <div className="grid grid-cols-2 gap-x-5 gap-y-12 lg:col-span-5 lg:grid-cols-1">
             {products.slice(1, 3).map((product) => (

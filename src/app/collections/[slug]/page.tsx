@@ -8,11 +8,8 @@ import { getProductsByCollection, products as allProducts } from "@/lib/products
 import { filterProducts, sortProducts } from "@/lib/product-filtering";
 
 const TONES: Record<string, TextileTone> = {
-  "the-obsidian-edit": "obsidian",
-  "evening-light": "burgundy",
-  "quiet-structure": "stone",
-  "the-embroidered-atelier": "gold",
-  "essential-nida": "sand",
+  "signature-abayas": "obsidian",
+  "three-piece-sets": "gold",
 };
 
 interface PageProps {

@@ -80,6 +80,7 @@ export interface Product {
   care: string[];
   availability: "in-stock" | "made-to-order" | "limited" | "sold-out";
   images: ProductImage[];
+  videos?: string[];
   modelPath?: string;
   isNew?: boolean;
   isLimited?: boolean;

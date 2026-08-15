@@ -1,62 +1,52 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { TextileStudy, type TextileTone } from "@/components/editorial/textile-study";
 import { Button } from "@/components/ui/button";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { cn } from "@/lib/utils";
 
 interface Slide {
   id: string;
-  imageSrc: string;
+  imageSeed: string;
   imageAlt: string;
+  tone: TextileTone;
   eyebrow: string;
   title: string;
   ctaLabel: string;
   ctaHref: string;
 }
 
+// No licensed campaign photography exists yet (see public/models/README.md and
+// the README's "3D asset workflow" section) — these use the same deterministic
+// TextileStudy placeholder as product imagery elsewhere on the site. Swap
+// imageSeed usage for a real <Image> once real campaign photos are sourced.
 const SLIDES: Slide[] = [
   {
-    id: "evening-light",
-    imageSrc: "/images/campaigns/evening-light.jpg",
-    imageAlt: "A woman in a deep burgundy hijab and floral dress standing beneath garden trees",
-    eyebrow: "For evenings that ask for more light",
-    title: "Evening Light",
+    id: "signature-abayas",
+    imageSeed: "hero-signature-abayas",
+    imageAlt: "A woman in a black embroidered abaya with a matching scarf",
+    tone: "obsidian",
+    eyebrow: "Everyday and occasion abayas",
+    title: "Signature Abayas",
     ctaLabel: "Shop the Edit",
-    ctaHref: "/collections/evening-light",
+    ctaHref: "/collections/signature-abayas",
   },
   {
-    id: "obsidian-edit",
-    imageSrc: "/images/campaigns/obsidian-edit.jpg",
-    imageAlt: "A woman in a black abaya and black hijab seated at a table in a warm, architectural interior",
-    eyebrow: "Architectural black, quietly constructed",
-    title: "The Obsidian Edit",
-    ctaLabel: "Explore the Collection",
-    ctaHref: "/collections/the-obsidian-edit",
-  },
-  {
-    id: "embroidered-atelier",
-    imageSrc: "/images/campaigns/embroidered-atelier.jpg",
-    imageAlt: "A woman in a maroon embroidered outfit with gold thread detail and a sheer dupatta",
-    eyebrow: "Hand-guided thread, piece by piece",
-    title: "The Embroidered Atelier",
-    ctaLabel: "Discover the Craft",
-    ctaHref: "/collections/the-embroidered-atelier",
-  },
-  {
-    id: "quiet-structure",
-    imageSrc: "/images/campaigns/quiet-structure.jpg",
-    imageAlt: "Three women in modest dress in a garden, in burgundy, patterned and white hijabs",
-    eyebrow: "Structure for the working day",
-    title: "Quiet Structure",
-    ctaLabel: "Shop Workwear",
-    ctaHref: "/collections/quiet-structure",
+    id: "three-piece-sets",
+    imageSeed: "hero-three-piece-sets",
+    imageAlt: "A three-piece abaya set: outer abaya, inner dress and matching hijab",
+    tone: "gold",
+    eyebrow: "Outer abaya, inner dress, matching hijab",
+    title: "Three-Piece Sets",
+    ctaLabel: "Shop the Sets",
+    ctaHref: "/collections/three-piece-sets",
   },
   {
     id: "atelier",
-    imageSrc: "/images/campaigns/atelier.jpg",
+    imageSeed: "hero-atelier",
     imageAlt: "A woman in sunglasses and an olive headscarf wearing a red and green patterned jacket",
+    tone: "sand",
     eyebrow: "Compose your own",
     title: "The Atelier",
     ctaLabel: "Enter the Atelier",
@@ -107,13 +97,12 @@ export function HeroCarousel() {
           )}
           aria-hidden={i !== index}
         >
-          <Image
-            src={s.imageSrc}
+          <TextileStudy
+            seed={s.imageSeed}
             alt={s.imageAlt}
-            fill
-            priority={i === 0}
-            sizes="100vw"
-            className="object-cover"
+            tone={s.tone}
+            aspect="landscape"
+            className="absolute inset-0 h-full w-full"
           />
         </div>
       ))}

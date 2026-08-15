@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { TextileStudy, type TextileTone } from "@/components/editorial/textile-study";
+import { type TextileTone } from "@/components/editorial/textile-study";
+import { ProductVisual } from "@/components/editorial/product-visual";
 import { QuickView } from "@/components/product/quick-view";
 import { useWishlistStore } from "@/store/wishlist-store";
 import { useHydrated } from "@/hooks/use-hydrated";
@@ -10,11 +11,8 @@ import { formatPrice, cn } from "@/lib/utils";
 import type { Product } from "@/lib/types";
 
 const COLLECTION_TONE: Record<string, TextileTone> = {
-  "the-obsidian-edit": "obsidian",
-  "evening-light": "burgundy",
-  "quiet-structure": "stone",
-  "the-embroidered-atelier": "gold",
-  "essential-nida": "sand",
+  "signature-abayas": "obsidian",
+  "three-piece-sets": "gold",
 };
 
 interface ProductCardProps {
@@ -23,29 +21,24 @@ interface ProductCardProps {
   aspectOverride?: "portrait" | "detail" | "landscape";
 }
 
-export function ProductCard({ product, aspectOverride }: ProductCardProps) {
-  const [hovered, setHovered] = useState(false);
+export function ProductCard({ product, priority, aspectOverride }: ProductCardProps) {
   const [quickViewOpen, setQuickViewOpen] = useState(false);
   const hydrated = useHydrated();
   const isWishlisted = useWishlistStore((s) => s.productIds.includes(product.id));
   const toggleWishlist = useWishlistStore((s) => s.toggle);
   const tone = COLLECTION_TONE[product.collectionSlug] ?? "obsidian";
-  const image = hovered && product.images[1] ? product.images[1] : product.images[0];
+  const image = product.images[0];
 
   return (
-    <div
-      className="group relative"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <div className="group relative">
       <Link href={`/products/${product.slug}`} className="block">
         <div className="relative">
-          <TextileStudy
-            seed={image.src}
-            alt={image.alt}
-            aspect={aspectOverride ?? "portrait"}
+          <ProductVisual
+            image={aspectOverride ? { ...image, aspect: aspectOverride } : image}
             tone={tone}
             showStitching={product.embroideryType !== "None"}
+            priority={priority}
+            hoverZoom
           />
           <div className="absolute left-3 top-3 flex flex-col gap-1">
             {product.isNew && (

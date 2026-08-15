@@ -17,11 +17,8 @@ const SCHEMA_AVAILABILITY: Record<string, string> = {
 };
 
 const TONES: Record<string, TextileTone> = {
-  "the-obsidian-edit": "obsidian",
-  "evening-light": "burgundy",
-  "quiet-structure": "stone",
-  "the-embroidered-atelier": "gold",
-  "essential-nida": "sand",
+  "signature-abayas": "obsidian",
+  "three-piece-sets": "gold",
 };
 
 interface PageProps {
