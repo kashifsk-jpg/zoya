@@ -46,6 +46,7 @@ export function PurchasePanel({
   const colour = product.colours.find((c) => c.id === colourId) ?? product.colours[0];
   const soldOut = product.availability === "sold-out";
   const fabric = getFabric(product.fabricId);
+  const fabricLabel = product.collectionSlug === "fine-jewelry" ? "Material" : "Fabric";
 
   return (
     <div id="purchase-panel">
@@ -64,7 +65,7 @@ export function PurchasePanel({
       <p className="mt-4 max-w-md text-body text-stone">{product.editorialDescription}</p>
       {fabric && (
         <p className="mt-2 max-w-md text-body text-stone">
-          <span className="text-ink">Fabric:</span> {fabric.name}
+          <span className="text-ink">{fabricLabel}:</span> {fabric.name}
         </p>
       )}
 

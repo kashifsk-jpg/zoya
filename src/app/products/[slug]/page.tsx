@@ -19,6 +19,8 @@ const SCHEMA_AVAILABILITY: Record<string, string> = {
 const TONES: Record<string, TextileTone> = {
   "signature-abayas": "obsidian",
   "three-piece-sets": "gold",
+  "fine-jewelry": "burgundy",
+  accessories: "sand",
 };
 
 interface PageProps {

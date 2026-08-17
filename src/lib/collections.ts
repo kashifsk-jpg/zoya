@@ -21,6 +21,26 @@ export const collections: CollectionSummary[] = [
       "Coordinated sets built from an embroidered outer abaya, a matching inner dress and a coordinating scarf or hijab — designed for Eid, weddings and gatherings where a complete look matters.",
     colorTreatment: "gold",
   },
+  {
+    id: "fine-jewelry",
+    slug: "fine-jewelry",
+    index: "03",
+    title: "Fine Jewelry",
+    statement: "Rings and statement pieces to finish a look, from everyday to occasion wear.",
+    introduction:
+      "A small edit of rings — faceted centre stones with pavé halos in rhodium-plated settings, sized for everyday wear through to Eid and evening occasions.",
+    colorTreatment: "burgundy",
+  },
+  {
+    id: "accessories",
+    slug: "accessories",
+    index: "04",
+    title: "Accessories",
+    statement: "Hijab caps and everyday layering pieces.",
+    introduction:
+      "Soft, snug-fit hijab caps in jersey-cotton, designed to keep hair secured and give the hijab a smooth, well-shaped base for everyday wear.",
+    colorTreatment: "sand",
+  },
 ];
 
 export function getCollection(slug: string) {

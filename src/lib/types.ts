@@ -19,7 +19,8 @@ export type FabricId =
   | "lace"
   | "chiffon-overlay"
   | "plain-unembroidered"
-  | "hand-embroidered";
+  | "hand-embroidered"
+  | "fine-jewelry";
 
 export interface Fabric {
   id: FabricId;

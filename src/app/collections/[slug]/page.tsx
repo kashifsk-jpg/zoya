@@ -10,6 +10,8 @@ import { filterProducts, sortProducts } from "@/lib/product-filtering";
 const TONES: Record<string, TextileTone> = {
   "signature-abayas": "obsidian",
   "three-piece-sets": "gold",
+  "fine-jewelry": "burgundy",
+  accessories: "sand",
 };
 
 interface PageProps {

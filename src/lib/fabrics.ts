@@ -111,6 +111,17 @@ export const fabrics: Fabric[] = [
     motion: "structural",
     accuracyTag: "representative",
   },
+  {
+    id: "fine-jewelry",
+    name: "Rhodium-Plated Setting & Cubic Zirconia",
+    weight: "Light",
+    texture: "Polished metal band with a faceted centre stone and pavé halo.",
+    drape: "N/A — structural setting, not a draped material.",
+    recommendedOccasion: ["Evening", "Wedding", "Eid"],
+    care: "Store in a soft pouch away from moisture and perfume; wipe with a dry microfibre cloth.",
+    motion: "still",
+    accuracyTag: "representative",
+  },
 ];
 
 export function getFabric(id: string) {

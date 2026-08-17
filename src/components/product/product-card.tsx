@@ -13,6 +13,8 @@ import type { Product } from "@/lib/types";
 const COLLECTION_TONE: Record<string, TextileTone> = {
   "signature-abayas": "obsidian",
   "three-piece-sets": "gold",
+  "fine-jewelry": "burgundy",
+  accessories: "sand",
 };
 
 interface ProductCardProps {

@@ -18,6 +18,7 @@ function AccordionItem({ title, children, defaultOpen }: { title: string; childr
 
 export function ProductDetailsAccordion({ product }: { product: Product }) {
   const fabric = getFabric(product.fabricId);
+  const fabricLabel = product.collectionSlug === "fine-jewelry" ? "Material" : "Fabric";
 
   return (
     <div className="mt-10">
@@ -25,11 +26,11 @@ export function ProductDetailsAccordion({ product }: { product: Product }) {
         <p>{product.description}</p>
         {fabric && (
           <p className="mt-2">
-            <span className="text-ink">Fabric:</span> {fabric.name}
+            <span className="text-ink">{fabricLabel}:</span> {fabric.name}
           </p>
         )}
       </AccordionItem>
-      <AccordionItem title="Fabric &amp; Care">
+      <AccordionItem title={product.collectionSlug === "fine-jewelry" ? "Material & Care" : "Fabric & Care"}>
         <p>{fabric?.name} — {fabric?.texture}</p>
         <ul className="mt-2 list-inside list-disc space-y-1">
           {product.care.map((instruction) => (
