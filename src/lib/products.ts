@@ -1230,7 +1230,7 @@ export const products: Product[] = [
     id: "p-monochrome-polka-dot",
     slug: "monochrome-polka-dot-prayer-dress",
     name: "Monochrome Polka Dot Prayer Dress",
-    collectionSlug: "signature-abayas",
+    collectionSlug: "prayer-dresses",
     description:
       "Lightweight cotton prayer dress with a classic black polka dot pattern on pure white and an attached matching headscarf.",
     editorialDescription:
@@ -1430,7 +1430,7 @@ export const products: Product[] = [
     id: "p-cotton-prayer-dress",
     slug: "cotton-prayer-dress",
     name: "Cotton Prayer Dress",
-    collectionSlug: "signature-abayas",
+    collectionSlug: "prayer-dresses",
     description: "Soft, breathable cotton prayer dress with a delicate micro-floral print and elasticated cuffs.",
     editorialDescription:
       "(Different colors available) Soft, breathable premium cotton prayer dress with a delicate micro-floral print, elasticated cuffs, and a matching attached headscarf.",
@@ -1635,7 +1635,7 @@ export const products: Product[] = [
     id: "p-pleated-hijab-cap",
     slug: "pleated-hijab-cap",
     name: "Pleated Hijab Cap",
-    collectionSlug: "accessories",
+    collectionSlug: "hijab-caps",
     description: "Olive green hijab cap with neat layered pleats across the front for a textured, elegant look. Available in different colors.",
     editorialDescription:
       "A comfortable and stylish olive green hijab cap featuring neat layered pleats across the front for a textured, elegant look. Made from soft, lightweight fabric, it provides a secure and comfortable fit while giving the hijab a smooth, well-shaped appearance. Perfect for everyday wear and easy to pair with abayas and scarves. Available in different colors.",
@@ -1664,7 +1664,7 @@ export const products: Product[] = [
     id: "p-hijab-cap-classic",
     slug: "hijab-cap-classic",
     name: "Hijab Cap",
-    collectionSlug: "accessories",
+    collectionSlug: "hijab-caps",
     description: "Soft hijab cap with a smooth, snug fit and clean, minimal finish. Available in different colors.",
     editorialDescription:
       "A soft hijab cap designed with a smooth, snug fit and a clean, minimal finish. Its comfortable fabric provides good coverage and helps keep the hijab securely in place, making it perfect for everyday wear and easy to style with abayas and scarves. Available in different colors.",
@@ -1693,7 +1693,7 @@ export const products: Product[] = [
     id: "p-scarf-hijab-cap-set",
     slug: "scarf-hijab-cap-set",
     name: "Scarf & Hijab Cap Set",
-    collectionSlug: "accessories",
+    collectionSlug: "hijab-caps",
     description: "Two-piece set: a stretchable jersey-cotton inner cap paired with a sheer chiffon open-front drape scarf. Made in Indonesia.",
     editorialDescription:
       "This two-piece set includes a soft, stretchable jersey-cotton inner cap in pale pink that fits snugly around the head to keep hair neatly secured and prevent slipping. Paired with it is a matching sheer chiffon scarf designed as an open-front drape that flows gracefully over the shoulders and chest. Available in different colors.",
@@ -2700,7 +2700,7 @@ export const products: Product[] = [
     id: "p-shimmering-champagne-gold-scarf",
     slug: "shimmering-champagne-gold-scarf",
     name: "Shimmering Champagne Gold Scarf",
-    collectionSlug: "accessories",
+    collectionSlug: "scarves",
     description: "A soft, woven scarf with a subtle metallic sheen in champagne-gold, trimmed with delicate golden beadwork along the hemline.",
     editorialDescription:
       "Crafted from a soft, woven fabric with a subtle metallic sheen, this elegant champagne-gold scarf blends quiet luxury with timeless sophistication. Neat rows of delicate golden beadwork trim the hemline, adding a refined pop of texture and shine that catches the light beautifully. Designed to drape effortlessly, it serves as a versatile statement piece that seamlessly elevates everyday and formal looks alike.",

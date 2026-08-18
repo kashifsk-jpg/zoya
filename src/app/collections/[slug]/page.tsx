@@ -11,7 +11,9 @@ const TONES: Record<string, TextileTone> = {
   "signature-abayas": "obsidian",
   "three-piece-sets": "gold",
   "fine-jewelry": "burgundy",
-  accessories: "sand",
+  "prayer-dresses": "ivory",
+  "hijab-caps": "stone",
+  scarves: "sand",
 };
 
 interface PageProps {

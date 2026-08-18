@@ -29,12 +29,14 @@ export function CollectionFilters({ resultCount, children }: { resultCount: numb
     const params = new URLSearchParams(searchParams.toString());
     if (value) params.set(key, value);
     else params.delete(key);
+    params.delete("page");
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
   }
 
   function clearAll() {
     const params = new URLSearchParams(searchParams.toString());
     for (const key of FILTER_KEYS) params.delete(key);
+    params.delete("page");
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
   }
 

@@ -5,17 +5,17 @@ import { collections } from "@/lib/collections";
 
 export const metadata: Metadata = {
   title: "Collections",
-  description: "Five collections, each built around a single idea in cut, fabric or craftsmanship.",
+  description: "Six collections, each built around a single idea in cut, fabric or craftsmanship.",
 };
 
-const TONES: TextileTone[] = ["obsidian", "burgundy", "stone", "gold", "sand"];
+const TONES: TextileTone[] = ["obsidian", "burgundy", "stone", "gold", "sand", "ivory"];
 
 export default function CollectionsPage() {
   return (
     <div className="bg-alabaster pt-28">
       <div className="mx-auto max-w-[1600px] px-5 py-16 md:px-10">
         <span className="text-label uppercase tracking-[0.14em] text-stone">Shop</span>
-        <h1 className="mt-4 max-w-2xl font-serif text-display-l">Five collections, each built around a single idea.</h1>
+        <h1 className="mt-4 max-w-2xl font-serif text-display-l">Six collections, each built around a single idea.</h1>
         <Link
           href="/collections/all"
           className="mt-6 inline-block text-label uppercase tracking-[0.14em] underline decoration-1 underline-offset-4"

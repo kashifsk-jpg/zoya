@@ -32,13 +32,33 @@ export const collections: CollectionSummary[] = [
     colorTreatment: "burgundy",
   },
   {
-    id: "accessories",
-    slug: "accessories",
+    id: "prayer-dresses",
+    slug: "prayer-dresses",
     index: "04",
-    title: "Accessories",
-    statement: "Hijab caps and everyday layering pieces.",
+    title: "Prayer Dresses",
+    statement: "Lightweight, breathable prayer dresses with attached headscarves.",
+    introduction:
+      "Soft cotton prayer dresses with elasticated cuffs and an attached matching headscarf, designed for effortless coverage during prayer and Ramadan.",
+    colorTreatment: "ivory",
+  },
+  {
+    id: "hijab-caps",
+    slug: "hijab-caps",
+    index: "05",
+    title: "Hijab Caps",
+    statement: "Soft, snug-fit inner caps that give the hijab a smooth, well-shaped base.",
     introduction:
       "Soft, snug-fit hijab caps in jersey-cotton, designed to keep hair secured and give the hijab a smooth, well-shaped base for everyday wear.",
+    colorTreatment: "stone",
+  },
+  {
+    id: "scarves",
+    slug: "scarves",
+    index: "06",
+    title: "Scarves",
+    statement: "Drape scarves and shawls to layer over any look.",
+    introduction:
+      "Sheer chiffon drapes and woven scarves with metallic sheen or beadwork trim, designed to layer effortlessly over abayas and everyday wear.",
     colorTreatment: "sand",
   },
 ];
