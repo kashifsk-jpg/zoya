@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useUIStore } from "@/store/ui-store";
 import { useBagStore, bagCount } from "@/store/bag-store";
@@ -25,8 +25,6 @@ const NAV_LEFT = [
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const [scrolled, setScrolled] = useState(false);
   const hydrated = useHydrated();
 
   const { mobileMenuOpen, bagDrawerOpen, searchOpen, setMobileMenu, setBagDrawer, setSearch } = useUIStore();
@@ -40,14 +38,6 @@ export function SiteHeader() {
     document.documentElement.lang = locale;
   }, [locale]);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const transparent = isHome && !scrolled;
   const count = hydrated ? bagCount(items) : 0;
 
   return (
@@ -55,10 +45,7 @@ export function SiteHeader() {
       <AnnouncementBar />
       <header
         className={cn(
-          "fixed inset-x-0 top-[calc(100vw*221/1705_+_2rem)] z-40 transition-all duration-500 sm:top-32 lg:top-36",
-          transparent
-            ? "bg-transparent text-ink py-6"
-            : "border-b border-ink/10 bg-alabaster/95 py-3 text-ink backdrop-blur-sm",
+          "fixed inset-x-0 top-20 z-40 border-b border-ink/10 bg-alabaster/95 py-3 text-ink backdrop-blur-sm sm:top-24 lg:top-28",
         )}
       >
         <div className="mx-auto grid max-w-[1600px] grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-3 px-5 md:px-10">

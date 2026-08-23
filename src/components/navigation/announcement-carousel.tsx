@@ -82,7 +82,7 @@ export function AnnouncementCarousel() {
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
-      className="fixed inset-x-0 top-0 z-[60] h-[calc(100vw*221/1705)] overflow-hidden transition-colors duration-700 ease-out sm:h-24 lg:h-28"
+      className="fixed inset-x-0 top-0 z-[60] h-20 overflow-hidden transition-colors duration-700 ease-out sm:h-24 lg:h-28"
       style={{ backgroundColor: active.bg }}
     >
       <div className="relative mx-auto h-full max-w-[1600px]">
@@ -99,7 +99,7 @@ export function AnnouncementCarousel() {
                 alt={i === index ? slide.alt : ""}
                 fill
                 sizes="(min-width: 1600px) 1600px, 100vw"
-                className="object-contain"
+                className="object-cover object-left sm:object-contain"
                 priority={i === 0}
               />
             </div>

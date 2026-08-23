@@ -57,7 +57,7 @@ export default function RootLayout({
         </a>
         <AnnouncementCarousel />
         <SiteHeader />
-        <main id="main-content" className="flex-1 pt-[calc(100vw*221/1705)] sm:pt-24 lg:pt-28">
+        <main id="main-content" className="flex-1 pt-20 sm:pt-24 lg:pt-28">
           {children}
         </main>
         <SiteFooter />
