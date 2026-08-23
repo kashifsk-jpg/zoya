@@ -11,22 +11,20 @@ import type { Product } from "@/lib/types";
 export function ProductDetailInteractive({ product, tone }: { product: Product; tone: TextileTone }) {
   const [colourId, setColourId] = useState(product.colours[0]?.id ?? "");
   const [size, setSize] = useState(product.sizes[2] ?? product.sizes[0]);
-  const [length, setLength] = useState(product.lengths[1] ?? product.lengths[0]);
+  const length = product.lengths[0] ?? "Standard";
   const addItem = useBagStore((s) => s.addItem);
   const colour = product.colours.find((c) => c.id === colourId) ?? product.colours[0];
 
   return (
     <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-10 px-5 py-12 md:px-10 lg:grid-cols-2 lg:gap-16">
       <ProductGallery product={product} colorHex={colour?.colorHex ?? "#0d0d0d"} tone={tone} />
-      <div className="lg:sticky lg:top-28 lg:self-start">
+      <div className="lg:sticky lg:top-56 lg:self-start">
         <PurchasePanel
           product={product}
           colourId={colourId}
           onColourChange={setColourId}
           size={size}
           onSizeChange={setSize}
-          length={length}
-          onLengthChange={setLength}
         />
       </div>
       <MobileStickyBar

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/navigation/site-header";
+import { AnnouncementCarousel } from "@/components/navigation/announcement-carousel";
 import { SiteFooter } from "@/components/navigation/site-footer";
 import { JsonLd } from "@/components/seo/json-ld";
 
@@ -54,8 +55,9 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
+        <AnnouncementCarousel />
         <SiteHeader />
-        <main id="main-content" className="flex-1">
+        <main id="main-content" className="flex-1 pt-20 sm:pt-24 lg:pt-28">
           {children}
         </main>
         <SiteFooter />

@@ -8,6 +8,7 @@ import { ProductVisual } from "@/components/editorial/product-visual";
 import { useBagStore } from "@/store/bag-store";
 import { formatPrice } from "@/lib/utils";
 import { getFabric } from "@/lib/fabrics";
+import { SIZE_NUMBER_LABEL } from "@/lib/products";
 import type { Product } from "@/lib/types";
 
 export function QuickView({ product, open, onClose }: { product: Product; open: boolean; onClose: () => void }) {
@@ -64,17 +65,31 @@ export function QuickView({ product, open, onClose }: { product: Product; open: 
           <div className="mt-6">
             <p className="text-label uppercase tracking-[0.14em] text-stone">Size</p>
             <div className="mt-2 flex flex-wrap gap-2">
-              {product.sizes.map((s) => (
-                <button
-                  key={s}
-                  type="button"
-                  onClick={() => setSize(s)}
-                  aria-pressed={size === s}
-                  className={`border px-3 py-1.5 text-caption ${size === s ? "border-ink bg-ink text-alabaster" : "border-ink/20"}`}
-                >
-                  {s}
-                </button>
-              ))}
+              {product.sizes.map((s) => {
+                const available = !product.availableSizes || product.availableSizes.includes(s);
+                return (
+                  <button
+                    key={s}
+                    type="button"
+                    disabled={!available}
+                    onClick={() => available && setSize(s)}
+                    aria-pressed={size === s}
+                    aria-label={available ? s : `${s}, sold out`}
+                    className={`flex min-w-[3rem] flex-col items-center border px-3 py-1.5 text-caption leading-tight ${
+                      !available
+                        ? "cursor-not-allowed border-ink/10 text-stone/50 line-through"
+                        : size === s
+                          ? "border-ink bg-ink text-alabaster"
+                          : "border-ink/20"
+                    }`}
+                  >
+                    <span>{s}</span>
+                    <span className={`text-[10px] tracking-[0.06em] ${size === s && available ? "text-alabaster/70" : "text-stone/70"}`}>
+                      {SIZE_NUMBER_LABEL[s] ?? ""}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 

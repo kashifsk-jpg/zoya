@@ -17,7 +17,59 @@ function variant(id: string, label: string, colorHex: string, fabricId: Material
 }
 
 const SIZES = ["S", "M", "L", "XL", "XXL"];
-const LENGTHS = ['Standard (56")', 'Tall (58")'];
+
+// Letter size to numeric abaya size, used for display ("S \u2014 52") and to
+// translate the numeric Size column in Zoya_Product_Inventory.xlsx into our
+// letter-based sizing.
+export const SIZE_NUMBER_LABEL: Record<string, string> = {
+  S: "52",
+  M: "54",
+  L: "56",
+  XL: "58",
+  XXL: "60",
+};
+
+// Per-product size availability, sourced from the "Size" column of
+// Zoya_Product_Inventory.xlsx (2026-08). Only products with a non-blank Size
+// cell are listed here \u2014 sizes not present for a given product are shown as
+// sold out. Products absent from this map have no known restriction, so every
+// size in SIZES is treated as available (per the source data, most rows have
+// this cell blank and should NOT be treated as sold out).
+const SIZE_AVAILABILITY: Record<string, string[]> = {
+  "black-floral-embroidered-abaya-pink": ["M", "L", "XL"],
+  "premium-floral-embellished-abaya": ["L", "XL"],
+  "white-crystal-work-abaya": ["L"],
+  "reversible-abaya-brown-pink": ["S"],
+  "reversible-abaya-blue-purple": ["S", "XL"],
+  "elegant-floral-open-abaya": ["L"],
+  "black-nida-embroidered-abaya-brown": ["L"],
+  "black-textured-abaya": ["M", "L"],
+  "classic-black-lace-abaya": ["XL"],
+  "blush-pink-embellished-abaya": ["L"],
+  "black-floral-embroidered-abaya-red": ["M"],
+  "charcoal-grey-lace-abaya": ["XL"],
+  "sage-green-embroidered-kaftan-abaya": ["XXL"],
+  "black-nida-abaya-silver-stripe": ["M"],
+  "sage-green-handwork-abaya": ["L", "XL"],
+  "classic-maroon-abaya": ["M"],
+  "navy-blue-abaya": ["L"],
+  "dark-brown-abaya": ["L"],
+  "black-embroidered-abaya": ["M"],
+  "light-brown-embellished-abaya": ["L"],
+  "black-lace-abaya": ["M"],
+  "white-lace-abaya": ["L"],
+  "elegant-three-piece-abaya-set-lavender": ["L"],
+  "elegant-three-piece-abaya-floral": ["M"],
+  "maroon-three-piece-embroidered-abaya-set": ["XXL"],
+  "sage-green-three-piece-abaya-set": ["S"],
+  "zebra-print-open-abaya": ["S"],
+  "grey-printed-open-abaya": ["L"],
+  "metallic-floral-sage-abaya-set": ["S"],
+};
+
+// Abayas are single-length pieces \u2014 the earlier "Standard (56\")/Tall (58\")"
+// options were placeholder data not backed by real supplier specs.
+const LENGTHS = ["Standard"];
 const CARE_STANDARD = ["Dry clean recommended", "Store on a padded hanger", "Steam rather than press over embroidery"];
 const JEWELRY_SIZES = ["One Size (Adjustable)"];
 const JEWELRY_LENGTHS = ["Standard"];
@@ -2843,6 +2895,16 @@ export const products: Product[] = [
     accuracyTag: "representative",
   },
 ];
+
+// Apply per-size availability from Zoya_Product_Inventory.xlsx. Products not
+// present in SIZE_AVAILABILITY keep all of SIZES selectable (no data = no
+// restriction, per the source sheet where most rows leave Size blank).
+for (const p of products) {
+  const availableSizes = SIZE_AVAILABILITY[p.slug];
+  if (availableSizes) {
+    p.availableSizes = availableSizes;
+  }
+}
 
 export function getProduct(slug: string) {
   return products.find((p) => p.slug === slug);

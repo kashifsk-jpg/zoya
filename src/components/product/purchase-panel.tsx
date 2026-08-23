@@ -10,6 +10,7 @@ import { formatPrice, cn } from "@/lib/utils";
 import type { Product } from "@/lib/types";
 import { WHATSAPP_HREF } from "@/lib/constants";
 import { getFabric } from "@/lib/fabrics";
+import { SIZE_NUMBER_LABEL } from "@/lib/products";
 
 const AVAILABILITY_LABEL: Record<Product["availability"], string> = {
   "in-stock": "In Stock — ships in 1–2 business days",
@@ -24,8 +25,6 @@ interface PurchasePanelProps {
   onColourChange: (id: string) => void;
   size: string;
   onSizeChange: (size: string) => void;
-  length: string;
-  onLengthChange: (length: string) => void;
 }
 
 export function PurchasePanel({
@@ -34,8 +33,6 @@ export function PurchasePanel({
   onColourChange,
   size,
   onSizeChange,
-  length,
-  onLengthChange,
 }: PurchasePanelProps) {
   const [quantity, setQuantity] = useState(1);
   const [justAdded, setJustAdded] = useState(false);
@@ -44,6 +41,7 @@ export function PurchasePanel({
   const isWishlisted = useWishlistStore((s) => s.productIds.includes(product.id));
   const toggleWishlist = useWishlistStore((s) => s.toggle);
   const colour = product.colours.find((c) => c.id === colourId) ?? product.colours[0];
+  const length = product.lengths[0] ?? "Standard";
   const soldOut = product.availability === "sold-out";
   const fabric = getFabric(product.fabricId);
   const fabricLabel = product.collectionSlug === "fine-jewelry" ? "Material" : "Fabric";
@@ -92,34 +90,32 @@ export function PurchasePanel({
           <SizeGuideDialog />
         </div>
         <div className="mt-2 flex flex-wrap gap-2">
-          {product.sizes.map((s) => (
-            <button
-              key={s}
-              type="button"
-              onClick={() => onSizeChange(s)}
-              aria-pressed={size === s}
-              className={cn("border px-3.5 py-2 text-caption", size === s ? "border-ink bg-ink text-alabaster" : "border-ink/20")}
-            >
-              {s}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-6">
-        <p className="text-label uppercase tracking-[0.14em] text-stone">Length</p>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {product.lengths.map((l) => (
-            <button
-              key={l}
-              type="button"
-              onClick={() => onLengthChange(l)}
-              aria-pressed={length === l}
-              className={cn("border px-3.5 py-2 text-caption", length === l ? "border-ink bg-ink text-alabaster" : "border-ink/20")}
-            >
-              {l}
-            </button>
-          ))}
+          {product.sizes.map((s) => {
+            const available = !product.availableSizes || product.availableSizes.includes(s);
+            return (
+              <button
+                key={s}
+                type="button"
+                disabled={!available}
+                onClick={() => available && onSizeChange(s)}
+                aria-pressed={size === s}
+                aria-label={available ? s : `${s}, sold out`}
+                className={cn(
+                  "flex min-w-[3.25rem] flex-col items-center border px-3.5 py-2 text-caption leading-tight",
+                  !available
+                    ? "cursor-not-allowed border-ink/10 text-stone/50 line-through"
+                    : size === s
+                      ? "border-ink bg-ink text-alabaster"
+                      : "border-ink/20",
+                )}
+              >
+                <span>{s}</span>
+                <span className={cn("text-[10px] tracking-[0.06em]", size === s && available ? "text-alabaster/70" : "text-stone/70")}>
+                  {SIZE_NUMBER_LABEL[s] ?? ""}
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
 

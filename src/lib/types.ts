@@ -71,6 +71,7 @@ export interface Product {
   currency: "AED";
   colours: MaterialVariant[];
   sizes: string[];
+  availableSizes?: string[];
   lengths: string[];
   fabricId: FabricId;
   cut: string;

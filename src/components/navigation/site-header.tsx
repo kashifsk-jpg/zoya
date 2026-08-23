@@ -55,7 +55,7 @@ export function SiteHeader() {
       <AnnouncementBar />
       <header
         className={cn(
-          "fixed inset-x-0 top-8 z-40 transition-all duration-500",
+          "fixed inset-x-0 top-28 z-40 transition-all duration-500 sm:top-32 lg:top-36",
           transparent
             ? "bg-transparent text-ink py-6"
             : "border-b border-ink/10 bg-alabaster/95 py-3 text-ink backdrop-blur-sm",
