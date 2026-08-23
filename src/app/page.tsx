@@ -1,5 +1,6 @@
 import { CollectionFilters } from "@/components/collections/collection-filters";
 import { ProductGrid } from "@/components/collections/product-grid";
+import { HomeHeroBanner } from "@/components/home/home-hero-banner";
 import { products as allProducts } from "@/lib/products";
 import { filterProducts, sortProducts } from "@/lib/product-filtering";
 
@@ -21,6 +22,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <div className="bg-alabaster pt-28">
+      <HomeHeroBanner />
       <div className="mx-auto max-w-[1600px] px-5 py-6 md:px-10 md:py-8">
         <span className="text-label uppercase tracking-[0.14em] text-stone">Shop</span>
         <h1 className="mt-2 font-serif text-display-l">All Products</h1>

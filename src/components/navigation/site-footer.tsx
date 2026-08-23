@@ -40,10 +40,10 @@ const COLUMNS = [
 ];
 
 const SOCIAL = [
-  { label: "Instagram", href: "https://instagram.com", Glyph: InstagramGlyph },
-  { label: "TikTok", href: "https://tiktok.com", Glyph: TikTokGlyph },
-  { label: "Pinterest", href: "https://pinterest.com", Glyph: PinterestGlyph },
-  { label: "Facebook", href: "https://facebook.com", Glyph: FacebookGlyph },
+  { label: "Instagram", href: "https://instagram.com/zoya.fashion.1990", Glyph: InstagramGlyph },
+  { label: "TikTok", href: "https://www.tiktok.com/@kkzwolrd", Glyph: TikTokGlyph },
+  { label: "Pinterest", href: "https://www.pinterest.com/cravesave/", Glyph: PinterestGlyph },
+  { label: "Facebook", href: "https://www.facebook.com/zaini.khan.308359/", Glyph: FacebookGlyph },
   { label: "Snapchat", href: "https://snapchat.com", Glyph: SnapchatGlyph },
   { label: "WhatsApp", href: WHATSAPP_HREF, Glyph: WhatsAppGlyph },
 ];

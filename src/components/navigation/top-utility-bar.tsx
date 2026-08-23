@@ -2,12 +2,13 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { WHATSAPP_DISPLAY, WHATSAPP_HREF } from "@/lib/constants";
-import { InstagramGlyph, FacebookGlyph, PinterestGlyph } from "@/components/navigation/social-glyphs";
+import { InstagramGlyph, FacebookGlyph, PinterestGlyph, TikTokGlyph } from "@/components/navigation/social-glyphs";
 
 const SOCIALS = [
-  { label: "Instagram", href: "https://instagram.com", Glyph: InstagramGlyph },
-  { label: "Facebook", href: "https://facebook.com", Glyph: FacebookGlyph },
-  { label: "Pinterest", href: "https://pinterest.com", Glyph: PinterestGlyph },
+  { label: "Instagram", href: "https://instagram.com/zoya.fashion.1990", Glyph: InstagramGlyph },
+  { label: "TikTok", href: "https://www.tiktok.com/@kkzwolrd", Glyph: TikTokGlyph },
+  { label: "Facebook", href: "https://www.facebook.com/zaini.khan.308359/", Glyph: FacebookGlyph },
+  { label: "Pinterest", href: "https://www.pinterest.com/cravesave/", Glyph: PinterestGlyph },
 ];
 
 const MESSAGES = [
