@@ -55,7 +55,7 @@ export function SiteHeader() {
       <AnnouncementBar />
       <header
         className={cn(
-          "fixed inset-x-0 top-28 z-40 transition-all duration-500 sm:top-32 lg:top-36",
+          "fixed inset-x-0 top-[calc(100vw*221/1705_+_2rem)] z-40 transition-all duration-500 sm:top-32 lg:top-36",
           transparent
             ? "bg-transparent text-ink py-6"
             : "border-b border-ink/10 bg-alabaster/95 py-3 text-ink backdrop-blur-sm",
@@ -98,9 +98,9 @@ export function SiteHeader() {
 
           <Link
             href="/"
-            className="col-start-2 shrink-0 whitespace-nowrap font-serif text-lg tracking-[0.22em] uppercase justify-self-center"
+            className="col-start-2 shrink-0 whitespace-nowrap font-serif text-base tracking-[0.1em] uppercase justify-self-center sm:text-lg sm:tracking-[0.22em]"
           >
-            Zoya Fashion
+            Zoya<span className="hidden sm:inline"> Fashion</span>
           </Link>
 
           <div className="col-start-3 flex shrink-0 items-center justify-end gap-1">

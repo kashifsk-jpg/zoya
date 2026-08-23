@@ -55,7 +55,7 @@ export default async function CollectionDetailPage({ params, searchParams }: Pag
   return (
     <div className="bg-alabaster pt-28">
       {collection ? (
-        <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-10 px-5 py-12 md:px-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
+        <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-6 px-5 py-6 md:gap-10 md:px-10 md:py-12 lg:grid-cols-[1fr_1.2fr] lg:items-center">
           <div>
             <span className="text-label uppercase tracking-[0.14em] text-stone">Collection {collection.index}</span>
             <h1 className="mt-4 font-serif text-display-l">{collection.title}</h1>
@@ -70,9 +70,9 @@ export default async function CollectionDetailPage({ params, searchParams }: Pag
           />
         </div>
       ) : (
-        <div className="mx-auto max-w-[1600px] px-5 py-12 md:px-10">
+        <div className="mx-auto max-w-[1600px] px-5 py-6 md:px-10 md:py-12">
           <span className="text-label uppercase tracking-[0.14em] text-stone">Shop</span>
-          <h1 className="mt-4 font-serif text-display-l">All Products</h1>
+          <h1 className="mt-2 font-serif text-display-l md:mt-4">All Products</h1>
         </div>
       )}
 

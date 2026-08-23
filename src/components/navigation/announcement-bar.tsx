@@ -19,7 +19,7 @@ function WhatsAppGlyph() {
 
 export function AnnouncementBar() {
   return (
-    <div className="fixed inset-x-0 top-20 z-50 flex h-8 items-center justify-center bg-ink text-alabaster sm:top-24 lg:top-28">
+    <div className="fixed inset-x-0 top-[calc(100vw*221/1705)] z-50 flex h-8 items-center justify-center bg-ink text-alabaster sm:top-24 lg:top-28">
       <a
         href={WHATSAPP_HREF}
         target="_blank"

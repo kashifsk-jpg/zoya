@@ -122,7 +122,7 @@ export function CollectionFilters({ resultCount, children }: { resultCount: numb
         </div>
       )}
 
-      <div className="mt-8 grid grid-cols-1 lg:grid-cols-[220px_1fr] lg:gap-12">
+      <div className="mt-4 grid grid-cols-1 md:mt-8 lg:grid-cols-[220px_1fr] lg:gap-12">
         <aside className="hidden lg:block">{controls}</aside>
         <div>{children}</div>
       </div>
