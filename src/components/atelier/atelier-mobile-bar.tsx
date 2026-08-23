@@ -3,20 +3,13 @@
 import { useState } from "react";
 import { Dialog } from "@/components/ui/dialog";
 import { AtelierSummary } from "@/components/atelier/atelier-summary";
-import { computeAtelierPrice, useAtelierStore } from "@/store/atelier-store";
-import { formatPrice } from "@/lib/utils";
 
 export function AtelierMobileBar() {
   const [open, setOpen] = useState(false);
-  const selections = useAtelierStore((s) => s.selections);
-  const price = computeAtelierPrice(selections);
 
   return (
     <div className="sticky bottom-0 z-20 flex items-center justify-between border-t border-ink/10 bg-alabaster px-5 py-3 lg:hidden">
-      <div>
-        <p className="text-caption text-stone">Estimated Price</p>
-        <p className="text-body">{formatPrice(price)}</p>
-      </div>
+      <p className="text-label uppercase tracking-[0.14em] text-stone">Your Composition</p>
       <button
         type="button"
         onClick={() => setOpen(true)}

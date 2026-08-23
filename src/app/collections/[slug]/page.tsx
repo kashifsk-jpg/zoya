@@ -4,6 +4,7 @@ import { TextileStudy, type TextileTone } from "@/components/editorial/textile-s
 import { CollectionFilters } from "@/components/collections/collection-filters";
 import { ProductGrid } from "@/components/collections/product-grid";
 import { collections, getCollection } from "@/lib/collections";
+import { HomeHeroBanner } from "@/components/home/home-hero-banner";
 import { getProductsByCollection, products as allProducts } from "@/lib/products";
 import { filterProducts, sortProducts } from "@/lib/product-filtering";
 
@@ -70,10 +71,13 @@ export default async function CollectionDetailPage({ params, searchParams }: Pag
           />
         </div>
       ) : (
-        <div className="mx-auto max-w-[1600px] px-5 py-6 md:px-10 md:py-8">
-          <span className="text-label uppercase tracking-[0.14em] text-stone">Shop</span>
-          <h1 className="mt-2 font-serif text-display-l">All Products</h1>
-        </div>
+        <>
+          <HomeHeroBanner />
+          <div className="mx-auto max-w-[1600px] px-5 py-6 md:px-10 md:py-8">
+            <span className="text-label uppercase tracking-[0.14em] text-stone">Shop</span>
+            <h1 className="mt-2 font-serif text-display-l">All Products</h1>
+          </div>
+        </>
       )}
 
       <div className="mx-auto max-w-[1600px] px-5 pb-24 md:px-10">

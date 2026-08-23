@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { atelierSteps, findOption } from "@/lib/atelier-options";
 import { computeAtelierPrice, useAtelierStore } from "@/store/atelier-store";
 import { useBagStore } from "@/store/bag-store";
-import { formatPrice } from "@/lib/utils";
 import { generateId } from "@/lib/id";
 import { WHATSAPP_HREF } from "@/lib/constants";
 
@@ -52,7 +51,7 @@ export function AtelierSummary() {
   }
 
   const consultationMessage = encodeURIComponent(
-    `Hello, I'd like to discuss an Atelier composition: ${silhouetteOption?.label}, ${fabricOption?.label}, ${colourOption?.label}. Estimated price ${formatPrice(price)}.`,
+    `Hello, I'd like to discuss an Atelier composition: ${silhouetteOption?.label}, ${fabricOption?.label}, ${colourOption?.label}.`,
   );
 
   return (
@@ -70,12 +69,7 @@ export function AtelierSummary() {
         })}
       </dl>
 
-      <p className="mt-4 flex items-baseline justify-between border-t border-ink/10 pt-4 text-h3">
-        <span className="text-body text-stone">Estimated Price</span>
-        {formatPrice(price)}
-      </p>
-
-      <div className="mt-6 flex flex-col gap-3">
+      <div className="mt-6 flex flex-col gap-3 border-t border-ink/10 pt-6">
         <Button onClick={addConfiguredToBag} className="w-full justify-center">
           {addedToBag ? "Added to Bag" : "Add to Bag"}
         </Button>
