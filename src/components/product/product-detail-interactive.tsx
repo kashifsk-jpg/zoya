@@ -18,7 +18,7 @@ export function ProductDetailInteractive({ product, tone }: { product: Product; 
   return (
     <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-10 px-5 py-12 md:px-10 lg:grid-cols-2 lg:gap-16">
       <ProductGallery product={product} colorHex={colour?.colorHex ?? "#0d0d0d"} tone={tone} />
-      <div className="lg:sticky lg:top-56 lg:self-start">
+      <div className="lg:sticky lg:top-28 lg:self-start">
         <PurchasePanel
           product={product}
           colourId={colourId}

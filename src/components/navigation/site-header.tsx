@@ -13,7 +13,6 @@ import { IconButton } from "@/components/ui/icon-button";
 import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { SearchOverlay } from "@/components/navigation/search-overlay";
 import { BagDrawer } from "@/components/commerce/bag-drawer";
-import { AnnouncementBar } from "@/components/navigation/announcement-bar";
 
 const NAV_LEFT = [
   { key: "shop", href: "/collections/all" },
@@ -42,10 +41,9 @@ export function SiteHeader() {
 
   return (
     <>
-      <AnnouncementBar />
       <header
         className={cn(
-          "fixed inset-x-0 top-20 z-40 border-b border-ink/10 bg-alabaster/95 py-3 text-ink backdrop-blur-sm sm:top-24 lg:top-28",
+          "fixed inset-x-0 top-10 z-40 border-b border-ink/10 bg-alabaster/95 py-3 text-ink backdrop-blur-sm",
         )}
       >
         <div className="mx-auto grid max-w-[1600px] grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-3 px-5 md:px-10">
