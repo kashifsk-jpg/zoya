@@ -28,12 +28,18 @@ function relativePercent(clientX: number, clientY: number, rect: DOMRect) {
   };
 }
 
-// Real product photos live under /public/images/products/ once sourced from the
-// supplier/catalog; anything else is treated as a TextileStudy seed (procedural
+// Real product photos live under /public/images/products/ or /public/noon/
+// (noon marketplace model shots) once sourced from the supplier/catalog or
+// generated; anything else is treated as a TextileStudy seed (procedural
 // placeholder). This lets products.ts mix real and placeholder imagery without
 // every call site needing to know which is which.
 function isRealImage(src: string) {
-  return src.startsWith("/images/") || src.startsWith("http://") || src.startsWith("https://");
+  return (
+    src.startsWith("/images/") ||
+    src.startsWith("/noon/") ||
+    src.startsWith("http://") ||
+    src.startsWith("https://")
+  );
 }
 
 interface ProductVisualProps {
