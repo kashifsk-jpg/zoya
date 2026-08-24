@@ -2190,7 +2190,7 @@ export const products: Product[] = [
     embellishmentType: "Marquise-cut emerald stones, botanical leaf clusters, pavé halo",
     care: JEWELRY_CARE,
     availability: "in-stock",
-    images: [img("/noon/emerald-leaf-motif-jewelry-set/model-closeup.jpg", "Emerald Leaf Motif Jewelry Set", "portrait"), img("/noon/emerald-leaf-motif-jewelry-set/1.jpg", "Emerald Leaf Motif Jewelry Set", "detail"), img("/noon/emerald-leaf-motif-jewelry-set/2.jpg", "Emerald Leaf Motif Jewelry Set", "detail"), img("/noon/emerald-leaf-motif-jewelry-set/model-wide.jpg", "Emerald Leaf Motif Jewelry Set", "detail")],
+    images: [img("/noon/emerald-leaf-motif-jewelry-set/model-shot.jpg", "Emerald Leaf Motif Jewelry Set", "portrait"), img("/noon/emerald-leaf-motif-jewelry-set/1.jpg", "Emerald Leaf Motif Jewelry Set", "detail"), img("/noon/emerald-leaf-motif-jewelry-set/2.jpg", "Emerald Leaf Motif Jewelry Set", "detail")],
     isNew: true,
     relatedProductIds: ["p-emerald-pearl-statement-set", "p-radiant-emerald-cluster-ring"],
     modelMeasurements: "N/A",
