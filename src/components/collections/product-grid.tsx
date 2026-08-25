@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { ProductCard } from "@/components/product/product-card";
@@ -15,6 +15,8 @@ export function ProductGrid({ products }: { products: Product[] }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const gridTopRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
 
   const perPage = (() => {
     const raw = Number(searchParams.get("perPage"));
@@ -40,6 +42,19 @@ export function ProductGrid({ products }: { products: Product[] }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [requestedPage, currentPage]);
 
+  // Changing pages happens via a click on the pagination control at the bottom of the
+  // grid; since router.push uses scroll:false (so perPage changes don't jerk the page
+  // around), a page change alone would otherwise leave the viewport exactly where the
+  // user clicked — at the bottom, below the newly-loaded products — making it look like
+  // the page jumped to a blank/empty area. Bring the top of the grid back into view.
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    gridTopRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [currentPage]);
+
   if (products.length === 0) {
     return (
       <div className="flex flex-col items-center gap-4 py-24 text-center">
@@ -59,6 +74,7 @@ export function ProductGrid({ products }: { products: Product[] }) {
 
   return (
     <div>
+      <div ref={gridTopRef} className="scroll-mt-28" />
       <div className="grid grid-cols-2 gap-x-3 gap-y-6 sm:gap-x-5 md:grid-cols-3 md:gap-y-12">
         {visible.map((product) => (
           <ProductCard key={product.id} product={product} />
