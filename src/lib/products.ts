@@ -3715,6 +3715,16 @@ export function getProductsByCollection(collectionSlug: string) {
   return products.filter((p) => p.collectionSlug === collectionSlug);
 }
 
+// Used by virtual category groups (see CATEGORY_GROUPS in lib/collections.ts)
+// that span more than one collectionSlug, e.g. "Abayas" = signature-abayas +
+// three-piece-sets. Keeping this as a shared helper (rather than each caller
+// re-deriving its own filter) is what keeps the homepage highlight strips and
+// the /collections/[slug] category routes reporting the same count.
+export function getProductsByCategoryGroup(collectionSlugs: string[]) {
+  const slugSet = new Set(collectionSlugs);
+  return products.filter((p) => slugSet.has(p.collectionSlug));
+}
+
 export function getFeaturedProducts() {
   return products.filter((p) => p.isFeatured);
 }

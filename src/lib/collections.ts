@@ -66,3 +66,26 @@ export const collections: CollectionSummary[] = [
 export function getCollection(slug: string) {
   return collections.find((c) => c.slug === slug);
 }
+
+// Virtual "category" groupings used for top-level shop navigation (the
+// homepage Abayas/Jewelry strips and their "View All" links, plus the
+// merged /collections/abayas and /collections/jewelry routes).
+//
+// These exist because "Abayas" as a shopper-facing category spans two real
+// collections (signature-abayas + three-piece-sets), while a single
+// collectionSlug (e.g. "signature-abayas") only ever matches one of them.
+// Previously the homepage's abaya highlight strip was built from both
+// collections but its "View All Abayas" link pointed at the single
+// "signature-abayas" collection page — so the destination page's count
+// (43) silently excluded the three-piece abaya sets (9) that the strip
+// itself had just shown. Defining the grouping once, here, and having both
+// the homepage and the /collections/[slug] route read from it keeps the
+// displayed count and the rendered grid in sync everywhere.
+export const CATEGORY_GROUPS: Record<string, { title: string; collectionSlugs: string[] }> = {
+  abayas: { title: "Abayas", collectionSlugs: ["signature-abayas", "three-piece-sets"] },
+  jewelry: { title: "Jewelry", collectionSlugs: ["fine-jewelry"] },
+};
+
+export function getCategoryGroup(slug: string) {
+  return CATEGORY_GROUPS[slug];
+}

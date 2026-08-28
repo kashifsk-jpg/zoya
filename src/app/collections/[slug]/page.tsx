@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 import { TextileStudy, type TextileTone } from "@/components/editorial/textile-study";
 import { CollectionFilters } from "@/components/collections/collection-filters";
 import { ProductGrid } from "@/components/collections/product-grid";
-import { collections, getCollection } from "@/lib/collections";
+import { collections, getCollection, CATEGORY_GROUPS, getCategoryGroup } from "@/lib/collections";
 import { HomeHeroBanner } from "@/components/home/home-hero-banner";
-import { getProductsByCollection, products as allProducts } from "@/lib/products";
+import { getProductsByCollection, getProductsByCategoryGroup, products as allProducts } from "@/lib/products";
 import { filterProducts, sortProducts } from "@/lib/product-filtering";
 
 const TONES: Record<string, TextileTone> = {
@@ -23,12 +23,18 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return [...collections.map((c) => ({ slug: c.slug })), { slug: "all" }];
+  return [
+    ...collections.map((c) => ({ slug: c.slug })),
+    ...Object.keys(CATEGORY_GROUPS).map((slug) => ({ slug })),
+    { slug: "all" },
+  ];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   if (slug === "all") return { title: "All Products" };
+  const categoryGroup = getCategoryGroup(slug);
+  if (categoryGroup) return { title: categoryGroup.title };
   const collection = getCollection(slug);
   if (!collection) return {};
   return { title: collection.title, description: collection.statement };
@@ -39,10 +45,15 @@ export default async function CollectionDetailPage({ params, searchParams }: Pag
   const query = await searchParams;
 
   const isAll = slug === "all";
-  const collection = isAll ? null : getCollection(slug);
-  if (!isAll && !collection) notFound();
+  const categoryGroup = isAll ? undefined : getCategoryGroup(slug);
+  const collection = isAll || categoryGroup ? null : getCollection(slug);
+  if (!isAll && !categoryGroup && !collection) notFound();
 
-  const baseProducts = isAll ? allProducts : getProductsByCollection(slug);
+  const baseProducts = isAll
+    ? allProducts
+    : categoryGroup
+      ? getProductsByCategoryGroup(categoryGroup.collectionSlugs)
+      : getProductsByCollection(slug);
 
   const filters = {
     fabric: asString(query.fabric),
@@ -69,6 +80,11 @@ export default async function CollectionDetailPage({ params, searchParams }: Pag
             tone={TONES[collection.slug] ?? "obsidian"}
             className="h-[40vh] lg:h-[50vh]"
           />
+        </div>
+      ) : categoryGroup ? (
+        <div className="mx-auto max-w-[1600px] px-5 py-6 md:px-10 md:py-8">
+          <span className="text-label uppercase tracking-[0.14em] text-stone">Shop</span>
+          <h1 className="mt-2 font-serif text-display-l">{categoryGroup.title}</h1>
         </div>
       ) : (
         <>
