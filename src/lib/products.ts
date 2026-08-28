@@ -81,6 +81,10 @@ const JEWELRY_CARE = [
 const CAP_SIZES = ["One Size"];
 const CAP_LENGTHS = ["Standard"];
 const CAP_CARE = ["Hand wash cold", "Dry flat", "Do not bleach"];
+// Prayer dresses are genuinely one-size garments (per supplier) — used for
+// newly-added colourways so the size selector doesn't misleadingly show
+// S–XXL for a product that only ships in one size.
+const PRAYER_DRESS_SIZES = ["Free Size"];
 
 export const products: Product[] = [
   // ---------- Signature Abayas ----------
@@ -1324,7 +1328,7 @@ export const products: Product[] = [
     price: 49,
     currency: "AED",
     colours: [variant("emerald-polka", "Emerald / Black Polka Dot", "#2e6b4f", "plain-unembroidered")],
-    sizes: SIZES,
+    sizes: PRAYER_DRESS_SIZES,
     lengths: LENGTHS,
     fabricId: "plain-unembroidered",
     cut: "Relaxed",
@@ -1353,7 +1357,7 @@ export const products: Product[] = [
     price: 49,
     currency: "AED",
     colours: [variant("beige-polka", "Beige / Black Polka Dot", "#e8d9c5", "plain-unembroidered")],
-    sizes: SIZES,
+    sizes: PRAYER_DRESS_SIZES,
     lengths: LENGTHS,
     fabricId: "plain-unembroidered",
     cut: "Relaxed",
@@ -1382,7 +1386,7 @@ export const products: Product[] = [
     price: 49,
     currency: "AED",
     colours: [variant("mustard-polka", "Mustard / Black Polka Dot", "#9a8b3f", "plain-unembroidered")],
-    sizes: SIZES,
+    sizes: PRAYER_DRESS_SIZES,
     lengths: LENGTHS,
     fabricId: "plain-unembroidered",
     cut: "Relaxed",
@@ -1411,7 +1415,7 @@ export const products: Product[] = [
     price: 49,
     currency: "AED",
     colours: [variant("purple-polka", "Purple / Black Polka Dot", "#4a2e52", "plain-unembroidered")],
-    sizes: SIZES,
+    sizes: PRAYER_DRESS_SIZES,
     lengths: LENGTHS,
     fabricId: "plain-unembroidered",
     cut: "Relaxed",
@@ -1440,7 +1444,7 @@ export const products: Product[] = [
     price: 49,
     currency: "AED",
     colours: [variant("sage-teal-polka", "Sage Teal / Black Polka Dot", "#6f9188", "plain-unembroidered")],
-    sizes: SIZES,
+    sizes: PRAYER_DRESS_SIZES,
     lengths: LENGTHS,
     fabricId: "plain-unembroidered",
     cut: "Relaxed",
@@ -1469,7 +1473,7 @@ export const products: Product[] = [
     price: 49,
     currency: "AED",
     colours: [variant("coral-polka", "Coral / Black Polka Dot", "#c97a5c", "plain-unembroidered")],
-    sizes: SIZES,
+    sizes: PRAYER_DRESS_SIZES,
     lengths: LENGTHS,
     fabricId: "plain-unembroidered",
     cut: "Relaxed",
@@ -1498,7 +1502,7 @@ export const products: Product[] = [
     price: 49,
     currency: "AED",
     colours: [variant("grey-polka", "Grey / Black Polka Dot", "#5c6670", "plain-unembroidered")],
-    sizes: SIZES,
+    sizes: PRAYER_DRESS_SIZES,
     lengths: LENGTHS,
     fabricId: "plain-unembroidered",
     cut: "Relaxed",
@@ -1527,7 +1531,7 @@ export const products: Product[] = [
     price: 49,
     currency: "AED",
     colours: [variant("olive-polka", "Olive / Black Polka Dot", "#4b5a3a", "plain-unembroidered")],
-    sizes: SIZES,
+    sizes: PRAYER_DRESS_SIZES,
     lengths: LENGTHS,
     fabricId: "plain-unembroidered",
     cut: "Relaxed",
