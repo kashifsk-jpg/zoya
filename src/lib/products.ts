@@ -213,6 +213,9 @@ export const products: Product[] = [
     images: [
       img("/images/products/crystal-work-open-front/main.jpeg", "Crystal Work Open Abaya, front view", "portrait"),
       img("/images/products/crystal-work-open-front/2.jpeg", "Crystal Work Open Abaya, detail view", "portrait"),
+      img("/images/products/crystal-work-open-front/AI1.png", "Crystal Work Open Abaya, back view", "portrait"),
+      img("/images/products/crystal-work-open-front/AI2.png", "Crystal Work Open Abaya, styled front view", "portrait"),
+      img("/images/products/crystal-work-open-front/AI3.png", "Crystal Work Open Abaya, close front view", "portrait"),
     ],
     videos: [
       "/images/products/crystal-work-open-front/v1.mp4",
@@ -977,9 +980,16 @@ export const products: Product[] = [
     embellishmentType: "Gold trim, layered flared sleeves",
     care: CARE_STANDARD,
     availability: "in-stock",
-    images: [1, 2, 3].map((n) =>
-      img(`/images/products/navy-blue-abaya/${n}.jpeg`, "Navy Blue Abaya, view " + n, "portrait")
-    ),
+    images: [
+      ...[1, 2, 3].map((n) =>
+        img(`/images/products/navy-blue-abaya/${n}.jpeg`, "Navy Blue Abaya, view " + n, "portrait")
+      ),
+      img(
+        "/images/products/navy-blue-abaya/e0950c8f-68ac-4add-8986-124ca0d2b530.png",
+        "Navy Blue Abaya, lifestyle view",
+        "portrait"
+      ),
+    ],
     relatedProductIds: ["p-elegant-black", "p-classy-peach"],
     modelMeasurements: "Measurements to be confirmed with supplier.",
     productMeasurements: "Size M, approx. length 140-142cm — to be confirmed with supplier.",
@@ -1801,7 +1811,12 @@ export const products: Product[] = [
     embellishmentType: "Woven floral jacquard pattern",
     care: CARE_STANDARD,
     availability: "in-stock",
-    images: [img("/images/products/floral-jacquard-abaya/front.jpg", "Floral Jacquard Abaya, front view", "portrait")],
+    images: [
+      img("/images/products/floral-jacquard-abaya/front.jpg", "Floral Jacquard Abaya, front view", "portrait"),
+      img("/images/products/floral-jacquard-abaya/Gemini_Generated_Image_rm0yrmrm0yrmrm0y.jpg", "Floral Jacquard Abaya, lifestyle view", "portrait"),
+      img("/images/products/floral-jacquard-abaya/Gemini_Generated_Image_ssawqbssawqbssaw.jpg", "Floral Jacquard Abaya, lifestyle view", "portrait"),
+      img("/images/products/floral-jacquard-abaya/Gemini_Generated_Image_xxmlhwxxmlhwxxml.jpg", "Floral Jacquard Abaya, lifestyle view", "portrait"),
+    ],
     isNew: true,
     relatedProductIds: ["p-lavender-hand-embroidered", "p-black-nida-embroidered-blue"],
     modelMeasurements: "Measurements to be confirmed with supplier.",
@@ -2095,7 +2110,14 @@ export const products: Product[] = [
     embellishmentType: "Botanical lace trim, pleated hem and cuffs, front zip closure",
     care: CARE_STANDARD,
     availability: "in-stock",
-    images: [img("/images/products/espresso-lace-trimmed-pleated-abaya/front.jpg", "Espresso Lace-Trimmed Pleated Abaya, front view", "portrait")],
+    images: [
+      img("/images/products/espresso-lace-trimmed-pleated-abaya/amazon-main-test.jpg", "Espresso Lace-Trimmed Pleated Abaya, styled front view", "portrait"),
+      img("/images/products/espresso-lace-trimmed-pleated-abaya/front.jpg", "Espresso Lace-Trimmed Pleated Abaya, front view", "portrait"),
+      img("/images/products/espresso-lace-trimmed-pleated-abaya/WhatsApp Image 2026-08-27 at 11.52.37 PM.jpeg", "Espresso Lace-Trimmed Pleated Abaya, hanging front detail", "portrait"),
+      img("/images/products/espresso-lace-trimmed-pleated-abaya/WhatsApp Image 2026-08-27 at 11.52.37 PM (1).jpeg", "Espresso Lace-Trimmed Pleated Abaya, hanging detail", "portrait"),
+      img("/images/products/espresso-lace-trimmed-pleated-abaya/WhatsApp Image 2026-08-27 at 11.52.37 PM (2).jpeg", "Espresso Lace-Trimmed Pleated Abaya, hanging detail", "portrait"),
+      img("/images/products/espresso-lace-trimmed-pleated-abaya/WhatsApp Image 2026-08-27 at 11.52.37 PM (3).jpeg", "Espresso Lace-Trimmed Pleated Abaya, hanging detail", "portrait"),
+    ],
     isNew: true,
     relatedProductIds: ["p-black-textured", "p-classic-black-lace"],
     modelMeasurements: "Measurements to be confirmed with supplier.",
@@ -2103,6 +2125,41 @@ export const products: Product[] = [
     constructionDetails: ["Satin-finish fabric", "Front zip closure", "Pleated hem and sleeve cuffs", "Botanical lace trim"],
     accuracyTag: "representative",
   },
+
+  // ---------- Added 2026-08-29: Teal Shimmer Abaya with Royal Trim ----------
+  {
+    id: "p-teal-shimmer-royal-trim",
+    slug: "teal-shimmer-abaya-royal-trim",
+    name: "Teal Shimmer Abaya",
+    collectionSlug: "signature-abayas",
+    description: "Shimmering teal-green abaya with an intricate black-and-gold royal trim along the front placket and neckline.",
+    editorialDescription:
+      "A striking teal-green abaya in a soft, shimmering fabric that catches the light with every movement. The front placket and neckline are finished with an intricate black-and-gold royal trim — a regal touch of beadwork and metallic thread that elevates the piece for Eid, evening gatherings, and special occasions, while remaining comfortable enough for everyday elegance.",
+    price: 129,
+    currency: "AED",
+    colours: [variant("teal-shimmer", "Teal Green (Shimmer)", "#3d7a86", "plain-unembroidered")],
+    sizes: SIZES,
+    lengths: LENGTHS,
+    fabricId: "plain-unembroidered",
+    cut: "Front-open",
+    sleeve: "Straight",
+    occasion: ["Eid", "Evening", "Everyday"],
+    embroideryType: "None",
+    embellishmentType: "Black-and-gold royal trim, front placket and neckline (beadwork and metallic thread)",
+    care: ["Dry clean recommended", "Store on a padded hanger", "Steam rather than press over embroidery"],
+    availability: "in-stock",
+    images: [
+      img("/images/products/teal-shimmer-abaya-royal-trim/hanger.jpg", "Teal Shimmer Abaya, hanging front view", "portrait"),
+      img("/images/products/teal-shimmer-abaya-royal-trim/lifestyle.jpg", "Teal Shimmer Abaya, lifestyle view", "portrait"),
+    ],
+    isNew: true,
+    relatedProductIds: ["p-navy-blue", "p-royal-blue-abaya"],
+    modelMeasurements: "Measurements to be confirmed with supplier.",
+    productMeasurements: "Size M, approx. length 140-142cm — to be confirmed with supplier.",
+    constructionDetails: ["Shimmer fabric with flowing drape", "Front-open cut with straight sleeves", "Black-and-gold royal trim, front placket and neckline"],
+    accuracyTag: "representative",
+  },
+
   {
     id: "p-lace-trimmed-chiffon-abaya",
     slug: "lace-trimmed-sheer-chiffon-abaya",
