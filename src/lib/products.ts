@@ -1311,7 +1311,7 @@ export const products: Product[] = [
     accuracyTag: "representative",
   },
 
-  \ ---------- Added 2026-08-28: Polka Dot Prayer Dress additional colourways ----------
+  // ---------- Added 2026-08-28: Polka Dot Prayer Dress additional colourways ----------
   {
     id: "p-polka-dot-prayer-dress-emerald",
     slug: "polka-dot-prayer-dress-emerald",
