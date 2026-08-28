@@ -4,11 +4,13 @@ import Link from "next/link";
 import { Dialog } from "@/components/ui/dialog";
 import { useLocaleStore, dictionary } from "@/store/locale-store";
 
+// Kept in sync with SiteHeader's NAV_LEFT — same flat category tabs, no
+// dropdowns, no abstract "Shop/Atelier/Craft/Journal" labels.
 const LINKS = [
-  { key: "shop", href: "/collections" },
-  { key: "atelier", href: "/atelier" },
-  { key: "craft", href: "/craft" },
-  { key: "journal", href: "/journal" },
+  { key: "home", href: "/" },
+  { key: "abayas", href: "/collections/abayas" },
+  { key: "jewelry", href: "/collections/jewelry" },
+  { key: "prayerDresses", href: "/collections/prayer-dresses" },
 ] as const;
 
 const SECONDARY = [

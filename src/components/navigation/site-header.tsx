@@ -14,12 +14,15 @@ import { MobileMenu } from "@/components/navigation/mobile-menu";
 import { SearchOverlay } from "@/components/navigation/search-overlay";
 import { BagDrawer } from "@/components/commerce/bag-drawer";
 
+// Flat, shopper-facing category tabs. Each links straight to a single
+// collection/category page (no dropdowns, no abstract "Shop/Atelier/Craft/
+// Journal" labels) so Abayas and Jewelry never mix on one page and there's
+// no need to hunt through a generic "Collections" index to find either.
 const NAV_LEFT = [
-  { key: "shop", href: "/collections/all" },
-  { key: "collections", href: "/collections" },
-  { key: "atelier", href: "/atelier" },
-  { key: "craft", href: "/craft" },
-  { key: "journal", href: "/journal" },
+  { key: "home", href: "/" },
+  { key: "abayas", href: "/collections/abayas" },
+  { key: "jewelry", href: "/collections/jewelry" },
+  { key: "prayerDresses", href: "/collections/prayer-dresses" },
 ] as const;
 
 export function SiteHeader() {
@@ -43,7 +46,11 @@ export function SiteHeader() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-10 z-40 border-b border-ink/10 bg-alabaster/95 py-3 text-ink backdrop-blur-sm",
+          // Darkened, high-contrast nav bar (per owner feedback the previous
+          // pale grey-on-white row had no visual weight). Reuses the site's
+          // existing burgundy brand colour (also used on the promo ribbon in
+          // TopUtilityBar) rather than introducing a new dark tone.
+          "fixed inset-x-0 top-10 z-40 border-b border-ink/10 bg-burgundy py-3 text-alabaster backdrop-blur-sm",
         )}
       >
         <div className="mx-auto grid max-w-[1600px] grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-3 px-5 md:px-10">
@@ -53,8 +60,8 @@ export function SiteHeader() {
           >
             {NAV_LEFT.map((item) => {
               const active =
-                item.href === "/collections"
-                  ? pathname === "/collections" || (pathname.startsWith("/collections/") && pathname !== "/collections/all")
+                item.href === "/"
+                  ? pathname === "/"
                   : pathname === item.href || pathname.startsWith(`${item.href}/`);
               return (
                 <Link

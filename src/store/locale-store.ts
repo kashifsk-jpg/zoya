@@ -14,11 +14,10 @@ export const useLocaleStore = create<LocaleState>()((set) => ({
 
 export const dictionary = {
   en: {
-    shop: "Shop",
-    collections: "Collections",
-    atelier: "Atelier",
-    craft: "Craft",
-    journal: "Journal",
+    home: "Home",
+    abayas: "Abayas",
+    jewelry: "Jewelry",
+    prayerDresses: "Prayer Dresses",
     search: "Search",
     account: "Account",
     wishlist: "Wishlist",
@@ -29,11 +28,10 @@ export const dictionary = {
     enterAtelier: "Enter the Atelier",
   },
   ar: {
-    shop: "تسوق",
-    collections: "المجموعات",
-    atelier: "أتيليه",
-    craft: "الحرفية",
-    journal: "المجلة",
+    home: "الرئيسية",
+    abayas: "عبايات",
+    jewelry: "مجوهرات",
+    prayerDresses: "أثواب الصلاة",
     search: "بحث",
     account: "الحساب",
     wishlist: "المفضلة",
