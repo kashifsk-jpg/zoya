@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Dialog } from "@/components/ui/dialog";
 import { useLocaleStore, dictionary } from "@/store/locale-store";
 
@@ -27,7 +28,14 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
     <Dialog open={open} onClose={onClose} labelledBy="mobile-menu-heading" placement="fullscreen">
       <div className="flex h-full w-full flex-col bg-warm-ivory text-ink">
         <div className="flex items-center justify-between px-5 py-6">
-          <span id="mobile-menu-heading" className="font-serif text-lg uppercase tracking-[0.22em]">
+          <span id="mobile-menu-heading" className="flex items-center gap-2 font-serif text-lg uppercase tracking-[0.22em]">
+            <Image
+              src="/images/branding/zoya-logo.jpg"
+              alt="Zoya Fashion"
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-full object-cover ring-1 ring-ink/20"
+            />
             Zoya Fashion
           </span>
           <button type="button" onClick={onClose} aria-label="Close menu" className="text-label uppercase tracking-[0.14em]">

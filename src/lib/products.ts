@@ -207,7 +207,7 @@ export const products: Product[] = [
     care: CARE_STANDARD,
     availability: "in-stock",
     images: [
-      img("/images/products/crystal-work-open-front/1.jpeg", "Crystal Work Open Abaya, front view", "portrait"),
+      img("/images/products/crystal-work-open-front/main.jpeg", "Crystal Work Open Abaya, front view", "portrait"),
       img("/images/products/crystal-work-open-front/2.jpeg", "Crystal Work Open Abaya, detail view", "portrait"),
     ],
     videos: [

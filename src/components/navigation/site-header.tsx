@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -90,9 +91,19 @@ export function SiteHeader() {
 
           <Link
             href="/"
-            className="col-start-2 shrink-0 whitespace-nowrap font-serif text-base tracking-[0.1em] uppercase justify-self-center sm:text-lg sm:tracking-[0.22em]"
+            className="col-start-2 flex shrink-0 items-center gap-2 whitespace-nowrap justify-self-center"
           >
-            Zoya<span className="hidden sm:inline"> Fashion</span>
+            <Image
+              src="/images/branding/zoya-logo.jpg"
+              alt="Zoya Fashion"
+              width={40}
+              height={40}
+              className="h-9 w-9 rounded-full object-cover ring-1 ring-alabaster/40 sm:h-10 sm:w-10"
+              priority
+            />
+            <span className="font-serif text-base tracking-[0.1em] uppercase sm:text-lg sm:tracking-[0.22em]">
+              Zoya<span className="hidden sm:inline"> Fashion</span>
+            </span>
           </Link>
 
           <div className="col-start-3 flex shrink-0 items-center justify-end gap-1">

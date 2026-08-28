@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { ProductCard } from "@/components/product/product-card";
 import { Button } from "@/components/ui/button";
@@ -102,11 +101,6 @@ export function ProductGrid({ products }: { products: Product[] }) {
         </label>
       </div>
 
-      {products.length > 0 && (
-        <p className="mt-6 text-center text-caption text-stone">
-          Can&rsquo;t find your fit? <Link href="/atelier" className="underline">Compose one in the Atelier.</Link>
-        </p>
-      )}
     </div>
   );
 }
