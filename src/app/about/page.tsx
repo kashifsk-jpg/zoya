@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { TextileStudy } from "@/components/editorial/textile-study";
 import { collections } from "@/lib/collections";
+import { WHATSAPP_DISPLAY } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "About",
@@ -73,8 +74,8 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-3xl px-5 py-16 text-center md:px-10">
         <p className="text-caption text-stone">
-          Zoya Fashion is an educational visualization project built from publicly available information. It is
-          not an operating storefront, and no purchase made here is processed for payment.
+          Zoya Fashion is a UAE-based abaya, prayer wear and modest jewelry brand, shipping nationwide with
+          Cash on Delivery. Questions? Reach us on WhatsApp at {WHATSAPP_DISPLAY}.
         </p>
       </section>
     </div>

@@ -79,8 +79,10 @@ export function ProductCard({ product, priority, aspectOverride }: ProductCardPr
           <p className="mt-0.5 text-caption text-stone">{product.cut} · {product.occasion[0]}</p>
         </div>
         <div className="shrink-0 text-right text-meta">
-          <span className={cn(product.compareAtPrice && "text-stone line-through")}>{formatPrice(product.price)}</span>
-          {product.compareAtPrice && <span className="ml-1.5 block text-ink">{formatPrice(product.compareAtPrice)}</span>}
+          {product.compareAtPrice && (
+            <span className="block text-stone line-through">{formatPrice(product.compareAtPrice)}</span>
+          )}
+          <span className={cn(product.compareAtPrice && "text-burgundy")}>{formatPrice(product.price)}</span>
         </div>
       </div>
       <div className="mt-2 flex items-center justify-between">

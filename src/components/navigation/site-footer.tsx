@@ -8,7 +8,7 @@ import {
   FacebookGlyph,
   SnapchatGlyph,
 } from "@/components/navigation/social-glyphs";
-import { WHATSAPP_HREF } from "@/lib/constants";
+import { WHATSAPP_HREF, WHATSAPP_DISPLAY } from "@/lib/constants";
 
 const COLUMNS = [
   {
@@ -50,28 +50,35 @@ const SOCIAL = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-ink/10 bg-warm-ivory text-ink">
+    <footer className="border-t border-ink/10 bg-ink text-alabaster">
       <div className="mx-auto max-w-[1600px] px-5 py-16 md:px-10">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <p className="font-serif text-h3">Zoya Fashion</p>
             <p className="mt-1 font-serif text-caption italic text-gold">Modest Style, Timeless Elegance</p>
-            <p className="mt-3 max-w-xs text-body text-stone">
-              Contemporary abayas composed through fabric, form and craftsmanship.
+            <p className="mt-3 max-w-xs text-body text-alabaster/70">
+              Abayas, prayer wear and modest jewelry for the modern UAE woman.
             </p>
-            <NewsletterForm />
-            <p className="mt-2 max-w-xs text-caption text-stone">
+            <ul className="mt-4 space-y-1.5 text-caption text-alabaster/70">
+              <li>WhatsApp: {WHATSAPP_DISPLAY}</li>
+              <li>Email: zufienterprises1990@gmail.com</li>
+              <li>Shipping across the UAE · Cash on Delivery</li>
+            </ul>
+            <div className="mt-4">
+              <NewsletterForm />
+            </div>
+            <p className="mt-2 max-w-xs text-caption text-alabaster/70">
               Considered releases, atelier notes and private appointment invitations. No noise.
             </p>
           </div>
 
           {COLUMNS.map((column) => (
             <div key={column.heading}>
-              <p className="text-label uppercase tracking-[0.14em] text-stone">{column.heading}</p>
+              <p className="text-label uppercase tracking-[0.14em] text-alabaster/60">{column.heading}</p>
               <ul className="mt-4 flex flex-col gap-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="text-body hover:text-stone">
+                    <Link href={link.href} className="text-body text-alabaster/80 hover:text-alabaster">
                       {link.label}
                     </Link>
                   </li>
@@ -81,9 +88,9 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-ink/10 pt-6 md:flex-row md:items-center">
-          <p className="text-caption text-stone">
-            © {new Date().getFullYear()} Zoya Fashion. Educational visualization project — not a live storefront.
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-alabaster/10 pt-6 md:flex-row md:items-center">
+          <p className="text-caption text-alabaster/60">
+            © Zoya Fashion {new Date().getFullYear()}. All rights reserved.
           </p>
           <ul className="flex flex-wrap gap-3">
             {SOCIAL.map((social) => (
@@ -93,7 +100,7 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-ink/10 text-stone transition-colors hover:border-ink/30 hover:text-ink"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-alabaster/20 text-alabaster/80 transition-colors hover:border-alabaster/50 hover:text-alabaster"
                 >
                   <social.Glyph />
                 </a>

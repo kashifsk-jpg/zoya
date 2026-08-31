@@ -24,6 +24,8 @@ const NAV_LEFT = [
   { key: "abayas", href: "/collections/abayas" },
   { key: "jewelry", href: "/collections/jewelry" },
   { key: "prayerDresses", href: "/collections/prayer-dresses" },
+  { key: "hijabCaps", href: "/collections/hijab-caps" },
+  { key: "scarves", href: "/collections/scarves" },
 ] as const;
 
 export function SiteHeader() {

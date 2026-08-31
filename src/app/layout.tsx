@@ -3,6 +3,7 @@ import { Geist, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/navigation/site-header";
 import { TopUtilityBar } from "@/components/navigation/top-utility-bar";
+import { TopMarquee } from "@/components/home/top-marquee";
 import { SiteFooter } from "@/components/navigation/site-footer";
 import { JsonLd } from "@/components/seo/json-ld";
 
@@ -21,16 +22,16 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zoya-fashion.example"),
+  metadataBase: new URL("https://zoya-gamma-seven.vercel.app"),
   title: {
-    default: "Zoya Fashion — Modesty, shaped by movement.",
+    default: "Zoya Fashion — Abayas, Jewelry & Modest Wear, UAE",
     template: "%s — Zoya Fashion",
   },
   description:
-    "Contemporary abayas composed through fabric, form and craftsmanship. Educational demonstration project — not a live commerce storefront.",
+    "Contemporary abayas, prayer wear and modest jewelry crafted for the modern UAE woman. Free UAE-wide delivery, Cash on Delivery.",
   openGraph: {
     title: "Zoya Fashion",
-    description: "Modesty, shaped by movement.",
+    description: "Contemporary abayas, prayer wear and modest jewelry — UAE-wide delivery.",
     type: "website",
   },
 };
@@ -48,13 +49,14 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Zoya Fashion",
-            description: "Contemporary abayas composed through fabric, form and craftsmanship.",
-            url: "https://zoya-fashion.example",
+            description: "Contemporary abayas, prayer wear and modest jewelry crafted for the modern UAE woman.",
+            url: "https://zoya-gamma-seven.vercel.app",
           }}
         />
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
+        <TopMarquee />
         <TopUtilityBar />
         <SiteHeader />
         <main id="main-content" className="flex-1 pt-10">

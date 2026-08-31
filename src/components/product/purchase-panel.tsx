@@ -54,10 +54,10 @@ export function PurchasePanel({
       <h1 className="mt-2 font-serif text-h1">{product.name}</h1>
       {product.nameArabic && <p className="mt-1 text-editorial text-stone">{product.nameArabic}</p>}
       <p className="mt-4 text-h3">
-        {formatPrice(product.price)}
         {product.compareAtPrice && (
-          <span className="ml-2 text-body text-stone line-through">{formatPrice(product.compareAtPrice)}</span>
+          <span className="mr-2 text-body text-stone line-through">{formatPrice(product.compareAtPrice)}</span>
         )}
+        <span className={product.compareAtPrice ? "text-burgundy" : undefined}>{formatPrice(product.price)}</span>
       </p>
 
       <p className="mt-4 max-w-md text-body text-stone">{product.editorialDescription}</p>

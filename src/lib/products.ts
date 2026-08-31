@@ -1322,6 +1322,7 @@ export const products: Product[] = [
     modelMeasurements: "Measurements to be confirmed with supplier.",
     productMeasurements: "Free size — to be confirmed with supplier.",
     constructionDetails: ["Attached matching headscarf", "Elasticated cuffed sleeves", "Breathable cotton"],
+    isFeatured: true,
     accuracyTag: "representative",
   },
 
@@ -1852,6 +1853,7 @@ export const products: Product[] = [
     modelMeasurements: "N/A",
     productMeasurements: "One size, adjustable band — to be confirmed with supplier.",
     constructionDetails: ["Rhodium-plated setting", "Pavé double halo", "Split shank band"],
+    isFeatured: true,
     accuracyTag: "representative",
   },
   {
@@ -1939,6 +1941,7 @@ export const products: Product[] = [
     modelMeasurements: "N/A",
     productMeasurements: "Standard length — to be confirmed with supplier.",
     constructionDetails: ["4-strand graduated pearl necklace", "Matching drop earrings included"],
+    isFeatured: true,
     accuracyTag: "representative",
   },
   // ---------- Accessories (added 2026-08-16, WhatsApp catalog delta) ----------
@@ -3076,6 +3079,7 @@ export const products: Product[] = [
     modelMeasurements: "N/A",
     productMeasurements: "One size — to be confirmed with supplier.",
     constructionDetails: ["Soft woven fabric with metallic sheen", "Golden beadwork trim along hemline", "Champagne-gold colourway"],
+    isFeatured: true,
     accuracyTag: "representative",
   },
   // ---------- Extended catalog sync, batch 7 (added 2026-08-18) ----------
