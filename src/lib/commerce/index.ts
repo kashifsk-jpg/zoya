@@ -1,5 +1,5 @@
-import { mockCommerceAdapter } from "./mock-adapter";
+import { whatsappCommerceAdapter } from "./whatsapp-adapter";
 import type { CommerceAdapter } from "./types";
 
-export const commerceAdapter: CommerceAdapter = mockCommerceAdapter;
+export const commerceAdapter: CommerceAdapter = whatsappCommerceAdapter;
 export * from "./types";

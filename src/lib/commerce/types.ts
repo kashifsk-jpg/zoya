@@ -8,9 +8,20 @@ export interface CheckoutLineItem {
   unitPrice: number;
 }
 
+export type PaymentMethod = "cod" | "bank_transfer";
+
+export interface CustomerDetails {
+  fullName: string;
+  phone: string;
+  email?: string;
+  emirate: string;
+  address: string;
+  notes?: string;
+}
+
 export interface CheckoutSession {
   id: string;
-  status: "demo" | "redirect";
+  status: "demo" | "redirect" | "whatsapp";
   subtotal: number;
   currency: string;
   estimatedDelivery: string;
@@ -18,11 +29,16 @@ export interface CheckoutSession {
 }
 
 /**
- * Boundary between Zoya Fashion presentation code and a real commerce backend.
- * Swap `mockCommerceAdapter` in `./index.ts` for a Shopify Storefront API,
- * Shopify Checkout, or Medusa implementation of this interface — no
- * presentation code should need to change.
+ * Boundary between Zoya Fashion presentation code and the order-intake
+ * backend. `whatsappCommerceAdapter` (see ./whatsapp-adapter.ts) hands
+ * orders to Zoya's team over WhatsApp for Cash on Delivery and Bank
+ * Transfer — no card gateway required. Swap in a Shopify/Medusa/Ziina
+ * adapter here later without touching presentation code.
  */
 export interface CommerceAdapter {
-  createCheckoutSession(lines: CheckoutLineItem[]): Promise<CheckoutSession>;
+  createCheckoutSession(
+    lines: CheckoutLineItem[],
+    customer: CustomerDetails,
+    paymentMethod: PaymentMethod,
+  ): Promise<CheckoutSession>;
 }
